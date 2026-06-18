@@ -4,7 +4,7 @@ export default function HeroSection() {
   return (
     <section
       className="relative flex items-center bg-zinc-900"
-      style={{ height: "calc(100dvh - 152px)" }}
+      style={{ height: "100dvh" }}
     >
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
