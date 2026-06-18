@@ -23,8 +23,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geist.variable} h-full`}>
       <body className="h-full flex flex-col antialiased">
-        <TopBar />
-        <Navbar />
+        <div className="fixed top-0 left-0 right-0 z-50">
+          <TopBar />
+          <Navbar />
+        </div>
         <main className="flex-1 flex flex-col">{children}</main>
       </body>
     </html>

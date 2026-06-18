@@ -11,7 +11,7 @@ const navLinks = [
 
 export default function Navbar() {
   return (
-    <nav className="bg-black sticky top-0 z-50">
+    <nav className="bg-black/40 backdrop-blur-sm">
       <div className="w-full px-12 md:px-20 h-28 flex items-center justify-between">
         <Link href="/" className="flex items-center">
           <Image
