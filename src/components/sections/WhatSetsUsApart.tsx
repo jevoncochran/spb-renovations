@@ -18,6 +18,7 @@ export default function WhatSetsUsApart() {
               src="/images/about/about-differentiator.jpg"
               alt="SPB Renovations craftsmanship"
               fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
             />
           </div>
