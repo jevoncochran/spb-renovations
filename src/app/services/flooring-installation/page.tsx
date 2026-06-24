@@ -25,6 +25,8 @@ export default function FlooringInstallationPage() {
           "Hardwood flooring installation and refinishing",
           "Luxury vinyl plank (LVP) installation",
           "Porcelain and ceramic tile installation",
+          "Natural stones: marble, granite, and travertine",
+          "Carpet and rugs",
           "Subfloor preparation and leveling",
           "Transitions, trim, and baseboard finishing",
           "Whole-home and room-by-room projects",

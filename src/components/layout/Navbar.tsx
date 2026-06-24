@@ -9,6 +9,7 @@ const serviceLinks = [
   { label: "Kitchen Remodeling", href: "/services/kitchen-remodeling" },
   { label: "Bathroom Remodeling", href: "/services/bathroom-remodeling" },
   { label: "Flooring Installation", href: "/services/flooring-installation" },
+  { label: "Countertops", href: "/services/countertops" },
 ];
 
 const navLinks = [
