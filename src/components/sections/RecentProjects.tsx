@@ -18,7 +18,7 @@ const projectImages = [
 export default function RecentProjects() {
   return (
     <section className="bg-white py-12">
-      <div className="w-full px-12 md:px-20">
+      <div className="w-full px-6 md:px-12 lg:px-20">
       <div className="flex items-center justify-between mb-5">
         <div>
           <h2 className="text-xl font-bold text-zinc-900">Recent Projects</h2>

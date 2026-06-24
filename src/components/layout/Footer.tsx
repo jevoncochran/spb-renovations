@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { PHONE_NUMBER, PHONE_HREF, EMAIL, EMAIL_HREF } from "@/lib/data/contact";
 
 const quickLinks = [
   { label: "Home", href: "/" },
@@ -30,7 +31,7 @@ const serviceAreas = [
 export default function Footer() {
   return (
     <footer className="bg-zinc-900 text-zinc-400">
-      <div className="w-full px-12 md:px-20 py-16">
+      <div className="w-full px-6 md:px-12 lg:px-20 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div>
@@ -119,19 +120,19 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <PhoneIcon />
                 <a
-                  href="tel:9548186405"
+                  href={PHONE_HREF}
                   className="text-sm hover:text-gold transition-colors"
                 >
-                  (954) 818-6405
+                  {PHONE_NUMBER}
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <MailIcon />
                 <a
-                  href="mailto:contact@spbrenovations.com"
+                  href={EMAIL_HREF}
                   className="text-sm hover:text-gold transition-colors"
                 >
-                  contact@spbrenovations.com
+                  {EMAIL}
                 </a>
               </li>
               <li className="flex items-start gap-3">
@@ -156,7 +157,7 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="border-t border-zinc-800">
-        <div className="w-full px-12 md:px-20 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="w-full px-6 md:px-12 lg:px-20 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-zinc-500">
             © {new Date().getFullYear()} SPB Renovations. All rights reserved.
           </p>

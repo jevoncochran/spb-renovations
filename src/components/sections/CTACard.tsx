@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { PHONE_NUMBER, PHONE_HREF } from "@/lib/data/contact";
 
 export default function CTACard() {
   return (
@@ -19,11 +20,11 @@ export default function CTACard() {
         <ArrowRightIcon />
       </Link>
       <a
-        href="tel:9548186405"
+        href={PHONE_HREF}
         className="flex items-center gap-2 text-zinc-700 text-sm font-medium hover:text-gold transition-colors"
       >
         <PhoneIcon />
-        Or call (954) 818-6405
+        Or call {PHONE_NUMBER}
       </a>
     </div>
   );

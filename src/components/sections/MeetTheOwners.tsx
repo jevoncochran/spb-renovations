@@ -11,7 +11,7 @@ const bullets = [
 export default function MeetTheOwners() {
   return (
     <section className="bg-white py-20">
-      <div className="w-full px-12 md:px-20">
+      <div className="w-full px-6 md:px-12 lg:px-20">
         <div className="text-center mb-14">
           <h2 className="text-4xl font-bold text-zinc-900">
             Meet{" "}

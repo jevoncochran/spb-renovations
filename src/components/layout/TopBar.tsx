@@ -1,27 +1,38 @@
+import { PHONE_NUMBER, PHONE_HREF, EMAIL, EMAIL_HREF, HOURS } from "@/lib/data/contact";
+
 export default function TopBar() {
   return (
-    <div className="bg-white text-zinc-800 text-sm py-2.5 px-12 md:px-20 border-b border-zinc-200">
-      <div className="w-full grid grid-cols-3 items-center">
+    <div className="bg-white text-zinc-800 text-sm border-b border-zinc-200">
+      {/* Mobile: call now strip */}
+      <div className="md:hidden flex justify-center py-2">
+        <a href={PHONE_HREF} className="flex items-center gap-2 font-medium hover:text-gold transition-colors">
+          <PhoneIcon />
+          Call Now: {PHONE_NUMBER}
+        </a>
+      </div>
+
+      {/* Desktop: full top bar */}
+      <div className="hidden md:grid grid-cols-3 items-center py-2.5 px-12 lg:px-20">
         <div className="flex items-center gap-6">
           <a
-            href="tel:9548186405"
+            href={PHONE_HREF}
             className="flex items-center gap-2 hover:text-gold transition-colors"
           >
             <PhoneIcon />
-            (954) 818-6405
+            {PHONE_NUMBER}
           </a>
           <a
-            href="mailto:info@spbrenovations.com"
+            href={EMAIL_HREF}
             className="flex items-center gap-2 hover:text-gold transition-colors"
           >
             <MailIcon />
-            contact@spbrenovations.com
+            {EMAIL}
           </a>
         </div>
         <div className="flex justify-center">
           <span className="flex items-center gap-2 text-zinc-600">
             <ClockIcon />
-            Monday through Friday: 8:00 AM to 5:00 PM
+            {HOURS}
           </span>
         </div>
         <div className="flex items-center gap-3 justify-end">

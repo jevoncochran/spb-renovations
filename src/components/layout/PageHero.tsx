@@ -33,7 +33,7 @@ export default function PageHero({
       />
       <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-black/20" />
 
-      <div className="relative z-10 w-full px-12 md:px-20">
+      <div className="relative z-10 w-full px-6 md:px-12 lg:px-20">
         <div className="flex items-center gap-3 mb-5">
           <div className="w-8 h-px bg-gold" />
           <span className="text-gold text-sm font-semibold tracking-widest uppercase">

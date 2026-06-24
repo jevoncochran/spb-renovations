@@ -24,7 +24,7 @@ const trustItems = [
 export default function TrustBar() {
   return (
     <section className="bg-zinc-100 border-t border-zinc-200">
-      <div className="w-full px-12 md:px-20 py-10">
+      <div className="w-full px-6 md:px-12 lg:px-20 py-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {trustItems.map((item) => (
             <div key={item.title} className="flex items-start gap-4">

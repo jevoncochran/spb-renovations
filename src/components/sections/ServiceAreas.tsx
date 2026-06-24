@@ -16,7 +16,7 @@ const cities = [
 export default function ServiceAreas() {
   return (
     <section className="bg-zinc-50 py-16">
-      <div className="w-full px-12 md:px-20">
+      <div className="w-full px-6 md:px-12 lg:px-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
           <div>
             <div className="flex items-center gap-3 mb-4">

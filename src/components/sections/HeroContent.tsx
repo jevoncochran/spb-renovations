@@ -2,14 +2,14 @@ import Link from "next/link";
 
 export default function HeroContent() {
   return (
-    <div className="pl-12 md:pl-20 max-w-5xl">
+    <div className="pl-6 md:pl-20 pr-6 max-w-5xl">
       <p className="text-gold font-semibold tracking-widest uppercase text-sm mb-5">
         Renovate. Refine. Relax.
       </p>
-      <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight mb-6">
+      <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
         Transform Your Home with Expert Craftsmanship
       </h1>
-      <p className="text-zinc-300 text-xl leading-relaxed mb-10">
+      <p className="text-zinc-300 text-base md:text-xl leading-relaxed mb-8">
         High-quality home renovations designed around your style, built to
         elevate everyday living.
       </p>

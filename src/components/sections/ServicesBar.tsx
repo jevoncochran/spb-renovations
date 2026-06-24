@@ -44,9 +44,9 @@ const icons: Record<string, React.ReactNode> = {
 
 export default function ServicesBar() {
   return (
-    <section className="bg-white py-12">
-      <div className="w-full px-12 md:px-20">
-        <div className="flex items-center">
+    <section className="bg-white pt-12 pb-6 md:py-12">
+      <div className="w-full px-6 md:px-12 lg:px-20">
+        <div className="flex flex-col md:flex-row items-stretch md:items-center gap-4 md:gap-0">
           {services.map((service, index) => (
             <Fragment key={service.title}>
               <div className="flex items-start gap-4 flex-1 px-6">
@@ -57,7 +57,7 @@ export default function ServicesBar() {
                 </div>
               </div>
               {index < services.length - 1 && (
-                <div className="w-px h-12 bg-zinc-200 shrink-0" />
+                <div className="hidden md:block w-px h-12 bg-zinc-200 shrink-0" />
               )}
             </Fragment>
           ))}
