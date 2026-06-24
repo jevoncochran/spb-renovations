@@ -6,7 +6,7 @@ import MeetTheOwners from "@/components/sections/MeetTheOwners";
 export const metadata = {
   title: "About | SPB Renovations",
   description:
-    "Learn about SPB Renovations — our story, our values, and our commitment to delivering exceptional home renovations across South Florida.",
+    "Learn about SPB Renovations — our story, our values, and our commitment to delivering exceptional home renovations across the Tampa Bay region.",
 };
 
 export default function AboutPage() {
