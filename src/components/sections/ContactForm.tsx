@@ -13,13 +13,13 @@ export default function ContactForm() {
   }
 
   return (
-    <section className="bg-transparent pb-20">
+    <section className="bg-white md:bg-transparent pb-12 md:pb-20">
       <div className="w-full px-6 md:px-12 lg:px-20">
-        <div className="bg-white rounded-xl shadow-2xl p-10 -mt-24 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div className="md:bg-white md:rounded-xl md:shadow-2xl md:p-12 md:-mt-24 md:relative md:z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
 
           {/* Left — info */}
-          <div>
+          <div className="pt-8 md:pt-0">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-8 h-px bg-gold" />
               <span className="text-gold text-sm font-semibold tracking-widest uppercase">
@@ -70,7 +70,7 @@ export default function ContactForm() {
           </div>
 
           {/* Right — form */}
-          <div className="bg-zinc-50 rounded-lg p-8">
+          <div className="py-8 md:py-0 md:bg-zinc-50 md:rounded-lg md:p-10">
             {submitted ? (
               <div className="flex flex-col items-center justify-center py-16 text-center">
                 <div className="bg-gold/10 p-4 rounded-full mb-5">

@@ -39,9 +39,9 @@ export default function Footer() {
               <Image
                 src="/images/spb_renovations_logo_gold.png"
                 alt="SPB Renovations"
-                width={160}
-                height={60}
-                className="h-16 w-auto object-contain mb-5"
+                width={280}
+                height={105}
+                className="h-28 w-auto object-contain mb-5"
               />
             </Link>
             <p className="text-sm leading-relaxed mb-6">
