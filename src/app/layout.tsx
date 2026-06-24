@@ -10,7 +10,7 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "SPB Renovations | Expert Home Renovation in South Florida",
+  title: "SPB Renovations | Expert Home Renovation in the Tampa Bay Area",
   description:
     "High-quality home renovations designed around your style. Kitchen remodeling, bathroom remodeling, whole home renovations, and design & build services.",
 };
