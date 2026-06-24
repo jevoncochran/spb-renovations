@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import MobileNav from "./MobileNav";
@@ -15,6 +18,19 @@ const navLinks = [
 ];
 
 export default function Navbar({ scrolled = false, menuOpen = false, setMenuOpen }: { scrolled?: boolean; menuOpen?: boolean; setMenuOpen?: (v: boolean) => void }) {
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setServicesOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
     <nav className="bg-black/40 backdrop-blur-sm relative">
       <div className={`w-full px-6 md:px-20 flex items-center justify-between py-3 md:py-0 transition-all duration-300 ${scrolled ? "h-28 md:h-20" : "h-28 md:h-28"}`}>
@@ -30,23 +46,25 @@ export default function Navbar({ scrolled = false, menuOpen = false, setMenuOpen
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
-          <Link
-            href="/about"
-            className="text-white font-medium hover:text-gold transition-colors"
-          >
+          <Link href="/about" className="text-white font-medium hover:text-gold transition-colors">
             About
           </Link>
-          {/* Services dropdown */}
-          <div className="relative group">
-            <button className="flex items-center gap-1 text-white font-medium hover:text-gold transition-colors">
+
+          {/* Services dropdown — click-based for cross-browser compatibility */}
+          <div className="relative" ref={dropdownRef}>
+            <button
+              onClick={() => setServicesOpen(!servicesOpen)}
+              className="flex items-center gap-1 text-white font-medium hover:text-gold transition-colors"
+            >
               Services
-              <ChevronDownIcon />
+              <ChevronDownIcon open={servicesOpen} />
             </button>
-            <div className="absolute top-full left-0 mt-2 w-52 bg-zinc-900 rounded shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+            <div className={`absolute top-full left-0 mt-2 w-52 bg-zinc-900 rounded shadow-xl transition-all duration-200 z-50 ${servicesOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}>
               {serviceLinks.map((link) => (
                 <Link
                   key={link.label}
                   href={link.href}
+                  onClick={() => setServicesOpen(false)}
                   className="block px-5 py-3 text-sm text-zinc-300 hover:text-gold hover:bg-zinc-800 transition-colors first:rounded-t last:rounded-b"
                 >
                   {link.label}
@@ -79,15 +97,11 @@ export default function Navbar({ scrolled = false, menuOpen = false, setMenuOpen
   );
 }
 
-function ChevronDownIcon() {
+function ChevronDownIcon({ open }: { open: boolean }) {
   return (
     <svg
-      width="14"
-      height="14"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.5"
+      width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"
+      className={`transition-transform duration-200 ${open ? "rotate-180" : ""}`}
     >
       <polyline points="6 9 12 15 18 9" />
     </svg>
