@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import Link from "next/link";
 import { PHONE_NUMBER, PHONE_HREF, EMAIL, EMAIL_HREF } from "@/lib/data/contact";
 
@@ -10,9 +10,7 @@ const serviceLinks = [
   { label: "Flooring Installation", href: "/services/flooring-installation" },
 ];
 
-export default function MobileNav() {
-  const [open, setOpen] = useState(false);
-
+export default function MobileNav({ open, setOpen }: { open: boolean; setOpen: (v: boolean) => void }) {
   const close = () => setOpen(false);
 
   useEffect(() => {

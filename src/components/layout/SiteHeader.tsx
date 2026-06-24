@@ -8,6 +8,7 @@ export default function SiteHeader() {
   const topBarRef = useRef<HTMLDivElement>(null);
   const [scrolled, setScrolled] = useState(false);
   const [topBarHeight, setTopBarHeight] = useState(0);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     if (topBarRef.current) {
@@ -33,7 +34,7 @@ export default function SiteHeader() {
       <div ref={topBarRef}>
         <TopBar />
       </div>
-      <Navbar scrolled={scrolled} />
+      <Navbar scrolled={scrolled} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
     </div>
   );
 }
