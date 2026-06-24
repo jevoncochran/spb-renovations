@@ -14,11 +14,11 @@ const navLinks = [
   { label: "Testimonials", href: "/testimonials" },
 ];
 
-export default function Navbar({ scrolled = false }: { scrolled?: boolean }) {
+export default function Navbar({ scrolled = false, menuOpen = false, setMenuOpen }: { scrolled?: boolean; menuOpen?: boolean; setMenuOpen?: (v: boolean) => void }) {
   return (
     <nav className="bg-black/40 backdrop-blur-sm relative">
       <div className={`w-full px-6 md:px-20 flex items-center justify-between py-3 md:py-0 transition-all duration-300 ${scrolled ? "h-28 md:h-20" : "h-28 md:h-28"}`}>
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="flex items-center" onClick={() => setMenuOpen?.(false)}>
           <Image
             src="/images/spb_renovations_logo_gold.png"
             alt="SPB Renovations"
@@ -73,7 +73,7 @@ export default function Navbar({ scrolled = false }: { scrolled?: boolean }) {
           Get a Free Estimate
         </Link>
 
-        <MobileNav />
+        <MobileNav open={menuOpen} setOpen={setMenuOpen ?? (() => {})} />
       </div>
     </nav>
   );
