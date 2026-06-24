@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { services } from "@/lib/data/services";
 
 const icons: Record<string, React.ReactNode> = {
@@ -47,8 +48,8 @@ export default function ServicesBar() {
       <div className="w-full px-12 md:px-20">
         <div className="flex items-center">
           {services.map((service, index) => (
-            <>
-              <div key={service.title} className="flex items-start gap-4 flex-1 px-6">
+            <Fragment key={service.title}>
+              <div className="flex items-start gap-4 flex-1 px-6">
                 <div className="shrink-0">{icons[service.icon]}</div>
                 <div>
                   <h3 className="font-semibold text-zinc-900 mb-1">{service.title}</h3>
@@ -56,9 +57,9 @@ export default function ServicesBar() {
                 </div>
               </div>
               {index < services.length - 1 && (
-                <div key={`divider-${index}`} className="w-px h-12 bg-zinc-200 shrink-0" />
+                <div className="w-px h-12 bg-zinc-200 shrink-0" />
               )}
-            </>
+            </Fragment>
           ))}
         </div>
       </div>
