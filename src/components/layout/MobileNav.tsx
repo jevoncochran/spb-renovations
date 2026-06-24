@@ -32,10 +32,10 @@ export default function MobileNav() {
 
       <div
         className={`absolute top-full left-0 right-0 bg-zinc-900 z-50 overflow-hidden transition-all duration-500 ease-in-out ${
-          open ? "max-h-[calc(100dvh-160px)] opacity-100" : "max-h-0 opacity-0"
+          open ? "max-h-[calc(100dvh-160px)] h-[calc(100dvh-160px)] opacity-100" : "max-h-0 h-0 opacity-0"
         }`}
       >
-        <div className="flex flex-col px-8 pt-4 pb-6 gap-0">
+        <div className="flex flex-col h-full px-8 py-6 justify-between">
 
           {/* Nav items */}
           <Link href="/about" onClick={close} className="flex items-center gap-4 py-2 text-white hover:text-gold transition-colors">
@@ -78,18 +78,18 @@ export default function MobileNav() {
           </Link>
 
           {/* CTA */}
-          <div className="flex justify-center mt-4">
+          <div className="flex justify-center">
             <Link
               href="/contact"
               onClick={close}
-              className="bg-gold hover:bg-gold-dark text-white font-semibold px-8 py-3 rounded-full transition-colors text-sm tracking-wide"
+              className="bg-gold hover:bg-gold-dark text-white font-semibold px-8 py-3 rounded transition-colors text-sm tracking-wide"
             >
               Get a Free Estimate
             </Link>
           </div>
 
           {/* Contact info */}
-          <div className="flex flex-col items-center gap-2 mt-4 pt-4 border-t border-zinc-800">
+          <div className="flex flex-col items-center gap-2 pt-4 border-t border-zinc-800">
             <a href={PHONE_HREF} className="flex items-center gap-2 text-sm text-zinc-400 hover:text-gold transition-colors">
               <PhoneIcon />
               {PHONE_NUMBER}
@@ -101,7 +101,7 @@ export default function MobileNav() {
           </div>
 
           {/* Socials */}
-          <div className="flex flex-col items-center gap-2 mt-3 pt-3 border-t border-zinc-800">
+          <div className="flex flex-col items-center gap-2 pt-3 border-t border-zinc-800">
             <span className="text-xs text-zinc-500 tracking-widest uppercase">Follow Us</span>
             <div className="flex items-center gap-4">
               <a href="#" aria-label="Facebook" className="text-zinc-400 hover:text-gold transition-colors">
