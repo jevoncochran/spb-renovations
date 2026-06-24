@@ -16,6 +16,7 @@ const services = [
   { label: "Bathroom Remodeling", href: "/services/bathroom-remodeling" },
   { label: "Flooring Installation", href: "/services/flooring-installation" },
   { label: "Countertops", href: "/services/countertops" },
+  { label: "Kitchen & Bathroom Cabinets", href: "/services/cabinets" },
 ];
 
 const serviceAreas = [
