@@ -6,7 +6,7 @@ interface ComingSoonProps {
 
 export default function ComingSoon({ page }: ComingSoonProps) {
   return (
-    <section className="bg-white flex-1 flex items-center justify-center py-32">
+    <section className="bg-white flex-1 flex items-center justify-center pt-60 pb-20 md:pt-56 md:pb-32">
       <div className="text-center px-6">
         <div className="inline-flex items-center gap-2 bg-gold/10 text-gold text-sm font-semibold tracking-widest uppercase px-4 py-2 rounded-full mb-8">
           <SparkleIcon />

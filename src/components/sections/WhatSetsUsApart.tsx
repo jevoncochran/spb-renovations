@@ -11,7 +11,7 @@ const bullets = [
 export default function WhatSetsUsApart() {
   return (
     <section className="bg-zinc-50 py-20">
-      <div className="w-full px-12 md:px-20">
+      <div className="w-full px-6 md:px-12 lg:px-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="relative aspect-[4/3] rounded overflow-hidden bg-zinc-200">
             <Image

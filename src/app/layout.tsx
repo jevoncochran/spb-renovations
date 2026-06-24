@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
-import TopBar from "@/components/layout/TopBar";
-import Navbar from "@/components/layout/Navbar";
+import SiteHeader from "@/components/layout/SiteHeader";
 import Footer from "@/components/layout/Footer";
 import "./globals.css";
 
@@ -24,10 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geist.variable} h-full`}>
       <body className="h-full flex flex-col antialiased">
-        <div className="fixed top-0 left-0 right-0 z-50">
-          <TopBar />
-          <Navbar />
-        </div>
+        <SiteHeader />
         <main className="flex-1 flex flex-col">{children}</main>
         <Footer />
       </body>

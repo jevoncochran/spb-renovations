@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { PHONE_NUMBER, PHONE_HREF, EMAIL, EMAIL_HREF } from "@/lib/data/contact";
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -13,7 +14,7 @@ export default function ContactForm() {
 
   return (
     <section className="bg-transparent pb-20">
-      <div className="w-full px-12 md:px-20">
+      <div className="w-full px-6 md:px-12 lg:px-20">
         <div className="bg-white rounded-xl shadow-2xl p-10 -mt-24 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
@@ -40,8 +41,8 @@ export default function ContactForm() {
                 </div>
                 <div>
                   <p className="font-semibold text-zinc-900">Phone</p>
-                  <a href="tel:9548186405" className="text-zinc-500 hover:text-gold transition-colors">
-                    (954) 818-6405
+                  <a href={PHONE_HREF} className="text-zinc-500 hover:text-gold transition-colors">
+                    {PHONE_NUMBER}
                   </a>
                 </div>
               </div>
@@ -51,8 +52,8 @@ export default function ContactForm() {
                 </div>
                 <div>
                   <p className="font-semibold text-zinc-900">Email</p>
-                  <a href="mailto:contact@spbrenovations.com" className="text-zinc-500 hover:text-gold transition-colors">
-                    contact@spbrenovations.com
+                  <a href={EMAIL_HREF} className="text-zinc-500 hover:text-gold transition-colors">
+                    {EMAIL}
                   </a>
                 </div>
               </div>
