@@ -10,6 +10,10 @@ const serviceLinks = [
   { label: "Flooring Installation", href: "/services/flooring-installation" },
   { label: "Countertops", href: "/services/countertops" },
   { label: "Custom Cabinetry / Professional Carpentry", href: "/services/cabinets" },
+  { label: "Demolition", href: "/services/demolition" },
+  { label: "Drywall", href: "/services/drywall" },
+  { label: "Painting", href: "/services/painting" },
+  { label: "Glass Doors, Shower Enclosures & Mirrors", href: "/services/glass" },
 ];
 
 export default function MobileNav({ open, setOpen }: { open: boolean; setOpen: (v: boolean) => void }) {
