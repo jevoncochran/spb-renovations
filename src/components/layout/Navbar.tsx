@@ -10,7 +10,17 @@ const serviceLinks = [
   { label: "Bathroom Remodeling", href: "/services/bathroom-remodeling" },
   { label: "Flooring Installation", href: "/services/flooring-installation" },
   { label: "Countertops", href: "/services/countertops" },
-  { label: "Kitchen & Bathroom Cabinets", href: "/services/cabinets" },
+  {
+    label: "Custom Cabinetry / Professional Carpentry",
+    href: "/services/cabinets",
+  },
+  { label: "Demolition", href: "/services/demolition" },
+  {
+    label: "Glass Doors, Shower Enclosures & Mirrors",
+    href: "/services/glass",
+  },
+  { label: "Drywall", href: "/services/drywall" },
+  { label: "Painting", href: "/services/painting" },
 ];
 
 const navLinks = [
@@ -19,13 +29,24 @@ const navLinks = [
   { label: "Testimonials", href: "/testimonials" },
 ];
 
-export default function Navbar({ scrolled = false, menuOpen = false, setMenuOpen }: { scrolled?: boolean; menuOpen?: boolean; setMenuOpen?: (v: boolean) => void }) {
+export default function Navbar({
+  scrolled = false,
+  menuOpen = false,
+  setMenuOpen,
+}: {
+  scrolled?: boolean;
+  menuOpen?: boolean;
+  setMenuOpen?: (v: boolean) => void;
+}) {
   const [servicesOpen, setServicesOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target as Node)
+      ) {
         setServicesOpen(false);
       }
     }
@@ -35,8 +56,14 @@ export default function Navbar({ scrolled = false, menuOpen = false, setMenuOpen
 
   return (
     <nav className="bg-black/40 backdrop-blur-sm relative">
-      <div className={`w-full px-6 md:px-20 flex items-center justify-between py-3 md:py-0 transition-all duration-300 ${scrolled ? "h-28 md:h-20" : "h-28 md:h-28"}`}>
-        <Link href="/" className="flex items-center" onClick={() => setMenuOpen?.(false)}>
+      <div
+        className={`w-full px-6 md:px-20 flex items-center justify-between py-3 md:py-0 transition-all duration-300 ${scrolled ? "h-28 md:h-20" : "h-28 md:h-28"}`}
+      >
+        <Link
+          href="/"
+          className="flex items-center"
+          onClick={() => setMenuOpen?.(false)}
+        >
           <Image
             src="/images/spb_renovations_logo_gold.png"
             alt="SPB Renovations"
@@ -48,7 +75,10 @@ export default function Navbar({ scrolled = false, menuOpen = false, setMenuOpen
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
-          <Link href="/about" className="text-white font-medium hover:text-gold transition-colors">
+          <Link
+            href="/about"
+            className="text-white font-medium hover:text-gold transition-colors"
+          >
             About
           </Link>
 
@@ -61,7 +91,9 @@ export default function Navbar({ scrolled = false, menuOpen = false, setMenuOpen
               Services
               <ChevronDownIcon open={servicesOpen} />
             </button>
-            <div className={`absolute top-full left-0 mt-2 w-52 bg-zinc-900 rounded shadow-xl transition-all duration-200 z-50 ${servicesOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}>
+            <div
+              className={`absolute top-full left-0 mt-2 w-52 bg-zinc-900 rounded shadow-xl transition-all duration-200 z-50 ${servicesOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
+            >
               {serviceLinks.map((link) => (
                 <Link
                   key={link.label}
@@ -102,7 +134,12 @@ export default function Navbar({ scrolled = false, menuOpen = false, setMenuOpen
 function ChevronDownIcon({ open }: { open: boolean }) {
   return (
     <svg
-      width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"
+      width="14"
+      height="14"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.5"
       className={`transition-transform duration-200 ${open ? "rotate-180" : ""}`}
     >
       <polyline points="6 9 12 15 18 9" />
