@@ -10,7 +10,7 @@ const serviceLinks = [
   { label: "Bathroom Remodeling", href: "/services/bathroom-remodeling" },
   { label: "Flooring Installation", href: "/services/flooring-installation" },
   { label: "Countertops", href: "/services/countertops" },
-  { label: "Kitchen & Bathroom Cabinets", href: "/services/cabinets" },
+  { label: "Custom Cabinetry / Professional Carpentry", href: "/services/cabinets" },
 ];
 
 const navLinks = [
