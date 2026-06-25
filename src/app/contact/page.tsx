@@ -4,7 +4,7 @@ import ServiceAreas from "@/components/sections/ServiceAreas";
 export const metadata = {
   title: "Contact | SPB Renovations",
   description:
-    "Get in touch with SPB Renovations to schedule your free consultation. We serve homeowners across the Tampa Bay area.",
+    "Get in touch with SPB Renovations to schedule your free consultation. We serve residential and commercial clients across the Tampa Bay area.",
 };
 
 export default function ContactPage() {
@@ -42,7 +42,7 @@ function ContactHero() {
           Let&apos;s Build Something Beautiful Together
         </h1>
         <p className="text-zinc-300 text-lg leading-relaxed max-w-xl">
-          Schedule your free consultation and take the first step toward the home you&apos;ve always envisioned.
+          Whether it&apos;s a residential renovation or a commercial project, schedule your free consultation and take the first step toward a space you&apos;ll love.
         </p>
       </div>
     </section>

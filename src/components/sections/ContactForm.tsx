@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { PHONE_NUMBER, PHONE_HREF, EMAIL, EMAIL_HREF } from "@/lib/data/contact";
+import { PHONE_NUMBER, PHONE_HREF, EMAIL, EMAIL_HREF, HOURS } from "@/lib/data/contact";
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -27,11 +27,12 @@ export default function ContactForm() {
               </span>
             </div>
             <h2 className="text-4xl font-bold text-zinc-900 leading-tight mb-5">
-              Let&apos;s Start Your Renovation
+              Let&apos;s Start Your Project
             </h2>
             <p className="text-zinc-500 text-lg leading-relaxed mb-10">
-              Ready to transform your home? Fill out the form and we&apos;ll be in
-              touch within one business day to schedule your free consultation.
+              Whether it&apos;s a residential renovation or a commercial project,
+              fill out the form and we&apos;ll be in touch within one business day
+              to schedule your free consultation.
             </p>
 
             <div className="space-y-6">
@@ -63,7 +64,7 @@ export default function ContactForm() {
                 </div>
                 <div>
                   <p className="font-semibold text-zinc-900">Office Hours</p>
-                  <p className="text-zinc-500">Monday – Friday: 8:00 AM – 5:00 PM</p>
+                  <p className="text-zinc-500">{HOURS}</p>
                 </div>
               </div>
             </div>
@@ -136,10 +137,17 @@ export default function ContactForm() {
                     className="w-full border border-zinc-200 rounded px-4 py-3 text-zinc-900 focus:outline-none focus:border-gold transition-colors bg-white"
                   >
                     <option value="">Select a service...</option>
-                    <option>Whole Home Renovation</option>
                     <option>Kitchen Remodeling</option>
                     <option>Bathroom Remodeling</option>
-                    <option>Design & Build</option>
+                    <option>Flooring Installation</option>
+                    <option>Countertops</option>
+                    <option>Custom Cabinetry / Professional Carpentry</option>
+                    <option>Demolition</option>
+                    <option>Drywall</option>
+                    <option>Painting</option>
+                    <option>Glass Doors, Shower Enclosures & Mirrors</option>
+                    <option>Commercial Renovation</option>
+                    <option>Whole Property Renovation</option>
                     <option>Other</option>
                   </select>
                 </div>
@@ -149,7 +157,7 @@ export default function ContactForm() {
                   </label>
                   <textarea
                     rows={4}
-                    placeholder="Describe your renovation goals, timeline, or any questions you have..."
+                    placeholder="Describe your project goals, timeline, or any questions you have..."
                     className="w-full border border-zinc-200 rounded px-4 py-3 text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-gold transition-colors resize-none"
                   />
                 </div>
