@@ -7,11 +7,11 @@ export default function HeroContent() {
         Renovate. Refine. Relax.
       </p>
       <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-        Transform Your Home with Expert Craftsmanship
+        Expert Renovations for Residential & Commercial Spaces
       </h1>
       <p className="text-zinc-300 text-base md:text-xl leading-relaxed mb-8">
-        High-quality home renovations designed around your style, built to
-        elevate everyday living.
+        High-quality renovations for homeowners and businesses — designed around
+        your vision, built to last.
       </p>
       <div className="flex flex-wrap gap-4">
         <Link
