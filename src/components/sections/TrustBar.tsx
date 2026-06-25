@@ -5,6 +5,11 @@ const trustItems = [
     description: "Your project is in safe hands.",
   },
   {
+    icon: <BuildingIcon />,
+    title: "Residential & Commercial",
+    description: "We serve homeowners and businesses.",
+  },
+  {
     icon: <RibbonIcon />,
     title: "Quality Craftsmanship",
     description: "Built to the highest standards.",
@@ -12,7 +17,7 @@ const trustItems = [
   {
     icon: <ClockIcon />,
     title: "On Time, Every Time",
-    description: "We respect your time and home.",
+    description: "We respect your time and space.",
   },
   {
     icon: <PeopleIcon />,
@@ -25,7 +30,7 @@ export default function TrustBar() {
   return (
     <section className="bg-zinc-100 border-t border-zinc-200">
       <div className="w-full px-6 md:px-12 lg:px-20 py-10">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           {trustItems.map((item) => (
             <div key={item.title} className="flex items-start gap-4">
               <div className="shrink-0 text-zinc-600 mt-0.5">{item.icon}</div>
@@ -38,6 +43,16 @@ export default function TrustBar() {
         </div>
       </div>
     </section>
+  );
+}
+
+function BuildingIcon() {
+  return (
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <rect x="3" y="3" width="18" height="18" rx="1" />
+      <path d="M3 9h18" />
+      <path d="M9 21V9" />
+    </svg>
   );
 }
 
