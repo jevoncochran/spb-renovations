@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SPB Renovations — Digital Ownership Setup Guide</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Georgia', serif;
+      color: #1a1a1a;
+      background: #fff;
+      line-height: 1.7;
+    }
+
+    .page {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 60px 56px;
+    }
+
+    /* Header */
+    .doc-header {
+      border-bottom: 3px solid #C9A227;
+      padding-bottom: 28px;
+      margin-bottom: 40px;
+    }
+
+    .doc-header .brand {
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #C9A227;
+      margin-bottom: 10px;
+    }
+
+    .doc-header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #111;
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+
+    .doc-header .subtitle {
+      font-size: 14px;
+      color: #666;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Overview box */
+    .overview {
+      background: #faf8f2;
+      border-left: 4px solid #C9A227;
+      padding: 20px 24px;
+      margin-bottom: 44px;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .overview p {
+      font-size: 14px;
+      color: #444;
+      font-family: Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    /* Section */
+    .section {
+      margin-bottom: 44px;
+      page-break-inside: avoid;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .section-number {
+      background: #C9A227;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .section h2 {
+      font-size: 19px;
+      font-weight: 700;
+      color: #111;
+      font-family: Arial, sans-serif;
+    }
+
+    .subsection {
+      margin-bottom: 16px;
+    }
+
+    .subsection h3 {
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: #C9A227;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+
+    ol, ul {
+      padding-left: 20px;
+    }
+
+    li {
+      font-family: Arial, sans-serif;
+      font-size: 13.5px;
+      color: #333;
+      margin-bottom: 6px;
+      line-height: 1.6;
+    }
+
+    li strong {
+      color: #111;
+    }
+
+    .note {
+      background: #f5f5f5;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin-top: 12px;
+      font-family: Arial, sans-serif;
+      font-size: 12.5px;
+      color: #555;
+      line-height: 1.55;
+    }
+
+    .note strong {
+      color: #333;
+    }
+
+    .option-block {
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 10px;
+    }
+
+    .option-block .option-label {
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #C9A227;
+      margin-bottom: 6px;
+    }
+
+    /* Summary table */
+    .summary-section {
+      margin-top: 48px;
+      page-break-before: always;
+    }
+
+    .summary-section h2 {
+      font-size: 19px;
+      font-weight: 700;
+      color: #111;
+      font-family: Arial, sans-serif;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #C9A227;
+      padding-bottom: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+    }
+
+    thead tr {
+      background: #1a1a1a;
+      color: #fff;
+    }
+
+    thead th {
+      padding: 10px 14px;
+      text-align: left;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    tbody tr:nth-child(even) {
+      background: #fafafa;
+    }
+
+    tbody td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #eee;
+      color: #333;
+      vertical-align: top;
+    }
+
+    tbody td:first-child {
+      font-weight: 600;
+      color: #111;
+    }
+
+    .check {
+      color: #C9A227;
+      font-weight: 700;
+    }
+
+    /* Footer */
+    .doc-footer {
+      margin-top: 48px;
+      padding-top: 20px;
+      border-top: 1px solid #ddd;
+      font-family: Arial, sans-serif;
+      font-size: 11.5px;
+      color: #999;
+      text-align: center;
+    }
+
+    /* Print */
+    @media print {
+      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .page { padding: 40px 48px; }
+      .section { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <div class="brand">SPB Renovations</div>
+    <h1>Digital Ownership Setup Guide</h1>
+    <div class="subtitle">Prepared for the Business Owner &nbsp;·&nbsp; Confidential</div>
+  </div>
+
+  <div class="overview">
+    <p>
+      This guide walks through setting up and transferring ownership of all digital accounts for SPB Renovations.
+      The goal is for the <strong>business owner</strong> to hold ownership of every account, with the
+      <strong>developer</strong> added as a collaborator to continue development and management work.
+      Follow each section in order — some steps require the developer to act first before the owner can complete them.
+    </p>
+  </div>
+
+  <!-- 1. Instagram -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">1</div>
+      <h2>Instagram</h2>
+    </div>
+
+    <div class="subsection">
+      <h3>Business Owner — Create the Account</h3>
+      <ol>
+        <li>Download the <strong>Instagram</strong> app on your phone.</li>
+        <li>Tap <strong>Sign Up</strong> and use the business email (<strong>contact@spbrenovations.com</strong>) as the account email.</li>
+        <li>Set the username to <strong>@spbrenovations</strong> (or the closest available variation).</li>
+        <li>Switch to a Business account: go to your Profile → <strong>Settings</strong> → <strong>Account</strong> → <strong>Switch to Professional Account</strong> → select <strong>Business</strong>.</li>
+        <li>Fill in the business category (<em>Home Improvement Contractor</em>), phone number, and website.</li>
+      </ol>
+    </div>
+
+    <div class="subsection">
+      <h3>Add Developer as Collaborator</h3>
+      <ol>
+        <li>From your Profile, go to <strong>Settings</strong> → <strong>Business</strong> → <strong>Instagram Partners</strong>.</li>
+        <li>Alternatively, use <strong>Meta Business Suite</strong> (business.facebook.com) once your Facebook Page is set up (see Section 2) to manage both accounts from one place.</li>
+        <li>Add the developer's email or Meta account and grant partner/admin access.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- 2. Facebook -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">2</div>
+      <h2>Facebook</h2>
+    </div>
+
+    <div class="subsection">
+      <h3>Business Owner — Create a Facebook Page</h3>
+      <ol>
+        <li>Log into Facebook (or create a personal account at <strong>facebook.com</strong> if you don't have one).</li>
+        <li>Click the <strong>+</strong> icon in the top right → <strong>Page</strong>.</li>
+        <li>Page name: <strong>SPB Renovations</strong></li>
+        <li>Category: <strong>Home Improvement Contractor</strong></li>
+        <li>Fill in phone number, website (<em>spbrenovations.com</em>), and business hours.</li>
+      </ol>
+    </div>
+
+    <div class="subsection">
+      <h3>Add Developer as Admin</h3>
+      <ol>
+        <li>Go to your Page → click <strong>Manage</strong> (top right).</li>
+        <li>Go to <strong>Page Access</strong> in the left sidebar.</li>
+        <li>Under <em>People with Facebook Access</em>, click <strong>Add New</strong>.</li>
+        <li>Search for the developer by name or email and grant <strong>Full Control</strong>.</li>
+        <li>The business owner remains the primary admin — this does not change ownership.</li>
+      </ol>
+    </div>
+
+    <div class="subsection">
+      <h3>Link Instagram to Facebook</h3>
+      <ol>
+        <li>From the Facebook Page → <strong>Settings</strong> → <strong>Linked Accounts</strong> → connect your Instagram account.</li>
+        <li>This enables unified management through <strong>Meta Business Suite</strong> (business.facebook.com).</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- 3. Mux -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">3</div>
+      <h2>Mux (Video Hosting for Gallery)</h2>
+    </div>
+
+    <div class="subsection">
+      <h3>Business Owner — Create the Account</h3>
+      <ol>
+        <li>Go to <strong>mux.com</strong> → click <strong>Sign Up</strong>.</li>
+        <li>Use the business email: <strong>contact@spbrenovations.com</strong>.</li>
+        <li>During onboarding, select <strong>Video</strong> as the product.</li>
+        <li>Add a payment method — there is a free tier to start, but a card is required to activate the account.</li>
+      </ol>
+    </div>
+
+    <div class="subsection">
+      <h3>Add Developer as Team Member</h3>
+      <ol>
+        <li>In the Mux dashboard, go to <strong>Settings</strong> → <strong>Organization</strong> → <strong>Members</strong>.</li>
+        <li>Click <strong>Invite Member</strong> and enter the developer's email.</li>
+        <li>Assign role: <strong>Admin</strong> (so the developer can upload and manage videos).</li>
+        <li>The developer will receive an email invitation to join the workspace.</li>
+      </ol>
+    </div>
+
+    <div class="note">
+      <strong>Uploading videos:</strong> Once the account is set up, go to Mux Dashboard → <strong>Video</strong> → <strong>Assets</strong> → <strong>Upload Video</strong> and drag your video files directly. The developer will handle connecting uploaded videos to the website gallery.
+    </div>
+  </div>
+
+  <!-- 4. Resend -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">4</div>
+      <h2>Resend (Contact Form Email Service)</h2>
+    </div>
+
+    <p style="font-family: Arial, sans-serif; font-size: 13.5px; color: #444; margin-bottom: 14px;">
+      Resend is the service that delivers contact form submissions from the website to your inbox. The business owner should own this account.
+    </p>
+
+    <div class="subsection">
+      <h3>Business Owner — Create the Account</h3>
+      <ol>
+        <li>Go to <strong>resend.com</strong> → click <strong>Sign Up</strong>.</li>
+        <li>Use the business email: <strong>contact@spbrenovations.com</strong>.</li>
+      </ol>
+    </div>
+
+    <div class="subsection">
+      <h3>Verify the Domain</h3>
+      <ol>
+        <li>In the Resend dashboard, go to <strong>Domains</strong> → <strong>Add Domain</strong>.</li>
+        <li>Enter <strong>spbrenovations.com</strong>.</li>
+        <li>Resend will display a set of DNS records — copy these and add them in GoDaddy (see Section 7).</li>
+        <li>Return to Resend and click <strong>Verify</strong>. This can take a few minutes to a few hours.</li>
+      </ol>
+    </div>
+
+    <div class="subsection">
+      <h3>Get an API Key</h3>
+      <ol>
+        <li>Go to <strong>API Keys</strong> → <strong>Create API Key</strong>.</li>
+        <li>Name it <em>SPB Renovations Production</em>.</li>
+        <li>Copy the key and send it securely to the developer — it will be added to the website's hosting settings (Vercel).</li>
+      </ol>
+    </div>
+
+    <div class="subsection">
+      <h3>Add Developer as Team Member</h3>
+      <ol>
+        <li>Go to <strong>Settings</strong> → <strong>Team</strong> → <strong>Invite Member</strong>.</li>
+        <li>Enter the developer's email → assign role: <strong>Admin</strong>.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- 5. GitHub -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">5</div>
+      <h2>GitHub (Website Source Code)</h2>
+    </div>
+
+    <div class="subsection">
+      <h3>Business Owner — Create an Account</h3>
+      <ol>
+        <li>Go to <strong>github.com</strong> → click <strong>Sign Up</strong>.</li>
+        <li>Use the business email: <strong>contact@spbrenovations.com</strong>.</li>
+        <li>Choose the <strong>Free</strong> plan.</li>
+      </ol>
+    </div>
+
+    <div class="subsection">
+      <h3>Create a GitHub Organization (Recommended)</h3>
+      <ol>
+        <li>Once logged in, click the <strong>+</strong> icon (top right) → <strong>New Organization</strong>.</li>
+        <li>Name it <strong>spb-renovations</strong> → choose the <strong>Free</strong> plan.</li>
+        <li>Skip adding members for now — the developer will handle this in the next step.</li>
+      </ol>
+    </div>
+
+    <div class="subsection">
+      <h3>Developer — Transfer the Repository</h3>
+      <ol>
+        <li>The developer goes to the existing repository on GitHub → <strong>Settings</strong>.</li>
+        <li>Scroll to the <strong>Danger Zone</strong> → click <strong>Transfer Repository</strong>.</li>
+        <li>Type the repository name to confirm, then transfer it to the <strong>spb-renovations</strong> organization just created.</li>
+      </ol>
+    </div>
+
+    <div class="subsection">
+      <h3>Add Developer as Collaborator</h3>
+      <ol>
+        <li>In the GitHub organization, go to <strong>People</strong> → <strong>Invite Member</strong>.</li>
+        <li>Enter the developer's GitHub username → assign role: <strong>Owner</strong> (so they can continue development).</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- 6. Vercel -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">6</div>
+      <h2>Vercel (Website Hosting)</h2>
+    </div>
+
+    <div class="subsection">
+      <h3>Business Owner — Create an Account</h3>
+      <ol>
+        <li>Go to <strong>vercel.com</strong> → click <strong>Sign Up with GitHub</strong> using the GitHub account created in Section 5.</li>
+        <li>This automatically links Vercel to the GitHub organization.</li>
+      </ol>
+    </div>
+
+    <div class="subsection">
+      <h3>Create a Vercel Team</h3>
+      <ol>
+        <li>In the Vercel dashboard, click your avatar → <strong>Create Team</strong>.</li>
+        <li>Name it <strong>SPB Renovations</strong>.</li>
+        <li>Choose the <strong>Hobby</strong> (free) plan to start — upgrade to <strong>Pro</strong> if needed later.</li>
+      </ol>
+    </div>
+
+    <div class="subsection">
+      <h3>Developer — Transfer the Project</h3>
+      <ol>
+        <li>The developer goes to the existing Vercel project → <strong>Settings</strong> → <strong>Transfer Project</strong>.</li>
+        <li>Transfer to the business owner's <strong>SPB Renovations</strong> team.</li>
+        <li>After transfer, re-link the project to the GitHub repository: go to project <strong>Settings</strong> → <strong>Git</strong> → reconnect to the repo in the <em>spb-renovations</em> GitHub org.</li>
+      </ol>
+    </div>
+
+    <div class="subsection">
+      <h3>Re-add Environment Variables</h3>
+      <ol>
+        <li>In the transferred project, go to <strong>Settings</strong> → <strong>Environment Variables</strong>.</li>
+        <li>Add the following variable: <br><strong>Key:</strong> <code>RESEND_API_KEY</code> &nbsp;·&nbsp; <strong>Value:</strong> the API key from Section 4.</li>
+      </ol>
+    </div>
+
+    <div class="subsection">
+      <h3>Add Developer as Collaborator</h3>
+      <ol>
+        <li>Vercel team → <strong>Settings</strong> → <strong>Members</strong> → <strong>Invite</strong>.</li>
+        <li>Enter the developer's email → assign role: <strong>Admin</strong>.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- 7. GoDaddy -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">7</div>
+      <h2>GoDaddy (Domain & DNS)</h2>
+    </div>
+
+    <p style="font-family: Arial, sans-serif; font-size: 13.5px; color: #444; margin-bottom: 14px;">
+      The business owner already owns the GoDaddy account and the domain <strong>spbrenovations.com</strong>. This step grants the developer access to manage DNS records.
+    </p>
+
+    <div class="subsection">
+      <h3>Add Developer via Delegate Access</h3>
+      <ol>
+        <li>Log into GoDaddy → click your account name in the top right → <strong>Account Settings</strong>.</li>
+        <li>Go to <strong>Delegate Access</strong> → click <strong>Grant Access</strong>.</li>
+        <li>Enter the developer's email address.</li>
+        <li>Set access level to <strong>Full Access</strong> (required to manage DNS records for domain verification).</li>
+        <li>The developer will receive an email invitation to accept.</li>
+      </ol>
+    </div>
+
+    <div class="note">
+      <strong>Why this matters:</strong> DNS records in GoDaddy need to be updated to connect the domain to Vercel (for hosting), to verify the domain in Resend (for email delivery), and potentially for Google Business verification. Developer access makes these updates possible without requiring the business owner's login each time.
+    </div>
+  </div>
+
+  <!-- 8. Google Business Profile -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">8</div>
+      <h2>Google Business Profile</h2>
+    </div>
+
+    <div class="subsection">
+      <h3>Business Owner — Create the Profile</h3>
+      <ol>
+        <li>Go to <strong>business.google.com</strong> and sign in with a Google account (use <em>contact@spbrenovations.com</em> or your personal Gmail).</li>
+        <li>Click <strong>Add your business</strong> → enter <strong>SPB Renovations</strong>.</li>
+        <li>Category: <strong>Home Improvement Contractor</strong></li>
+        <li>Add phone number, website, service area (Tampa Bay), and business hours.</li>
+        <li>Click <strong>Verify</strong> — Google will mail a postcard to the business address with a verification code. This typically takes 5–7 days.</li>
+      </ol>
+    </div>
+
+    <div class="subsection">
+      <h3>Add Developer as Manager</h3>
+      <ol>
+        <li>In Google Business Profile → <strong>Business Profile Settings</strong> → <strong>Managers</strong>.</li>
+        <li>Click <strong>Add</strong> → enter the developer's Google/Gmail address.</li>
+        <li>Assign role: <strong>Manager</strong>.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- 9. Business Email -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">9</div>
+      <h2>Business Email (contact@spbrenovations.com)</h2>
+    </div>
+
+    <p style="font-family: Arial, sans-serif; font-size: 13.5px; color: #444; margin-bottom: 14px;">
+      This email address is used across the website and all accounts above. It needs to be set up as a real, working inbox so contact form submissions and inquiries are actually received.
+    </p>
+
+    <div class="option-block">
+      <div class="option-label">Option A — Google Workspace (Recommended, ~$6/month)</div>
+      <ol>
+        <li>Go to <strong>workspace.google.com</strong> → Start Free Trial.</li>
+        <li>Enter domain <strong>spbrenovations.com</strong> during setup.</li>
+        <li>Google will provide DNS records — add them in GoDaddy (see Section 7).</li>
+        <li>This creates a full Gmail inbox at <strong>contact@spbrenovations.com</strong>.</li>
+      </ol>
+    </div>
+
+    <div class="option-block">
+      <div class="option-label">Option B — GoDaddy Email Hosting</div>
+      <ol>
+        <li>Log into GoDaddy → go to <strong>Email & Microsoft 365</strong>.</li>
+        <li>Purchase a Professional Email plan for your domain.</li>
+        <li>Less feature-rich than Google Workspace, but simpler to manage if you prefer to stay within GoDaddy.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Summary Table -->
+  <div class="summary-section">
+    <h2>Summary Checklist</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Platform</th>
+          <th>Purpose</th>
+          <th>Owner</th>
+          <th>Developer Access</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Instagram</td>
+          <td>Social media</td>
+          <td>Business Owner</td>
+          <td><span class="check">Partner / Admin</span></td>
+        </tr>
+        <tr>
+          <td>Facebook Page</td>
+          <td>Social media</td>
+          <td>Business Owner</td>
+          <td><span class="check">Full Control (Admin)</span></td>
+        </tr>
+        <tr>
+          <td>Mux</td>
+          <td>Video hosting for gallery</td>
+          <td>Business Owner</td>
+          <td><span class="check">Team Admin</span></td>
+        </tr>
+        <tr>
+          <td>Resend</td>
+          <td>Contact form email delivery</td>
+          <td>Business Owner</td>
+          <td><span class="check">Team Admin</span></td>
+        </tr>
+        <tr>
+          <td>GitHub</td>
+          <td>Source code repository</td>
+          <td>Business Owner (org)</td>
+          <td><span class="check">Org Owner</span></td>
+        </tr>
+        <tr>
+          <td>Vercel</td>
+          <td>Website hosting &amp; deployment</td>
+          <td>Business Owner (team)</td>
+          <td><span class="check">Team Admin</span></td>
+        </tr>
+        <tr>
+          <td>GoDaddy</td>
+          <td>Domain &amp; DNS</td>
+          <td>Business Owner</td>
+          <td><span class="check">Delegate (Full Access)</span></td>
+        </tr>
+        <tr>
+          <td>Google Business Profile</td>
+          <td>Google listing &amp; reviews</td>
+          <td>Business Owner</td>
+          <td><span class="check">Manager</span></td>
+        </tr>
+        <tr>
+          <td>Business Email</td>
+          <td>Primary contact inbox</td>
+          <td>Business Owner</td>
+          <td>Optional</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="doc-footer">
+    SPB Renovations &nbsp;·&nbsp; Confidential &nbsp;·&nbsp; Prepared by Developer
+  </div>
+
+</div>
+</body>
+</html>

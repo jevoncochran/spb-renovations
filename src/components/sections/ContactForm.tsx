@@ -5,11 +5,34 @@ import { PHONE_NUMBER, PHONE_HREF, EMAIL, EMAIL_HREF, HOURS } from "@/lib/data/c
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  const [fields, setFields] = useState({
+    firstName: "", lastName: "", email: "", phone: "", projectType: "", message: "",
+  });
+
+  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
+    setFields({ ...fields, [e.target.name]: e.target.value });
+  }
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // Wire up to an email service (e.g. Resend) when ready
-    setSubmitted(true);
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(fields),
+      });
+      if (!res.ok) throw new Error();
+      setSubmitted(true);
+    } catch {
+      setError("Something went wrong. Please try again or call us directly.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -86,54 +109,37 @@ export default function ContactForm() {
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-sm font-medium text-zinc-700 mb-1.5">
-                      First Name
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="Scott"
+                    <label className="block text-sm font-medium text-zinc-700 mb-1.5">First Name</label>
+                    <input type="text" name="firstName" required placeholder="Scott"
+                      value={fields.firstName} onChange={handleChange}
                       className="w-full border border-zinc-200 rounded px-4 py-3 text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-gold transition-colors"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-zinc-700 mb-1.5">
-                      Last Name
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="Baldwin"
+                    <label className="block text-sm font-medium text-zinc-700 mb-1.5">Last Name</label>
+                    <input type="text" name="lastName" required placeholder="Baldwin"
+                      value={fields.lastName} onChange={handleChange}
                       className="w-full border border-zinc-200 rounded px-4 py-3 text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-gold transition-colors"
                     />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-zinc-700 mb-1.5">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    placeholder="you@example.com"
+                  <label className="block text-sm font-medium text-zinc-700 mb-1.5">Email</label>
+                  <input type="email" name="email" required placeholder="you@example.com"
+                    value={fields.email} onChange={handleChange}
                     className="w-full border border-zinc-200 rounded px-4 py-3 text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-gold transition-colors"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-zinc-700 mb-1.5">
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    placeholder="(954) 000-0000"
+                  <label className="block text-sm font-medium text-zinc-700 mb-1.5">Phone Number</label>
+                  <input type="tel" name="phone" placeholder="(813) 000-0000"
+                    value={fields.phone} onChange={handleChange}
                     className="w-full border border-zinc-200 rounded px-4 py-3 text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-gold transition-colors"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-zinc-700 mb-1.5">
-                    Type of Project
-                  </label>
-                  <select
+                  <label className="block text-sm font-medium text-zinc-700 mb-1.5">Type of Project</label>
+                  <select name="projectType" value={fields.projectType} onChange={handleChange}
                     className="w-full border border-zinc-200 rounded px-4 py-3 text-zinc-900 focus:outline-none focus:border-gold transition-colors bg-white"
                   >
                     <option value="">Select a service...</option>
@@ -156,16 +162,19 @@ export default function ContactForm() {
                     Tell Us About Your Project
                   </label>
                   <textarea
-                    rows={4}
+                    name="message" rows={4}
                     placeholder="Describe your project goals, timeline, or any questions you have..."
+                    value={fields.message} onChange={handleChange}
                     className="w-full border border-zinc-200 rounded px-4 py-3 text-zinc-900 placeholder-zinc-400 focus:outline-none focus:border-gold transition-colors resize-none"
                   />
                 </div>
+                {error && <p className="text-red-500 text-sm">{error}</p>}
                 <button
                   type="submit"
-                  className="w-full bg-gold hover:bg-gold-dark text-white font-semibold py-4 rounded transition-colors"
+                  disabled={loading}
+                  className="w-full bg-gold hover:bg-gold-dark disabled:opacity-60 text-white font-semibold py-4 rounded transition-colors"
                 >
-                  Send Message
+                  {loading ? "Sending..." : "Send Message"}
                 </button>
               </form>
             )}
