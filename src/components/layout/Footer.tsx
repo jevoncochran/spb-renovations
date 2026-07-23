@@ -1,6 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import { PHONE_NUMBER, PHONE_HREF, EMAIL, EMAIL_HREF } from "@/lib/data/contact";
+import {
+  PHONE_NUMBER,
+  PHONE_HREF,
+  EMAIL,
+  EMAIL_HREF,
+  FACEBOOK_HREF,
+  INSTAGRAM_HREF,
+} from "@/lib/data/contact";
 
 const quickLinks = [
   { label: "Home", href: "/" },
@@ -16,11 +23,17 @@ const services = [
   { label: "Bathroom Remodeling", href: "/services/bathroom-remodeling" },
   { label: "Flooring Installation", href: "/services/flooring-installation" },
   { label: "Countertops", href: "/services/countertops" },
-  { label: "Custom Cabinetry / Professional Carpentry", href: "/services/cabinets" },
+  {
+    label: "Custom Cabinetry / Professional Carpentry",
+    href: "/services/cabinets",
+  },
   { label: "Demolition", href: "/services/demolition" },
   { label: "Drywall", href: "/services/drywall" },
   { label: "Painting", href: "/services/painting" },
-  { label: "Glass Doors, Shower Enclosures & Mirrors", href: "/services/glass" },
+  {
+    label: "Glass Doors, Shower Enclosures & Mirrors",
+    href: "/services/glass",
+  },
 ];
 
 const serviceAreas = [
@@ -56,14 +69,18 @@ export default function Footer() {
             </p>
             <div className="flex items-center gap-4">
               <a
-                href="#"
+                href={FACEBOOK_HREF}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Facebook"
                 className="hover:text-gold transition-colors"
               >
                 <FacebookIcon />
               </a>
               <a
-                href="#"
+                href={INSTAGRAM_HREF}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Instagram"
                 className="hover:text-gold transition-colors"
               >
