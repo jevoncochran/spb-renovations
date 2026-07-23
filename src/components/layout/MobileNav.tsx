@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { PHONE_NUMBER, PHONE_HREF, EMAIL, EMAIL_HREF, FACEBOOK_HREF, INSTAGRAM_HREF } from "@/lib/data/contact";
 
@@ -9,7 +9,7 @@ const serviceLinks = [
   { label: "Bathroom Remodeling", href: "/services/bathroom-remodeling" },
   { label: "Flooring Installation", href: "/services/flooring-installation" },
   { label: "Countertops", href: "/services/countertops" },
-  { label: "Custom Cabinetry / Professional Carpentry", href: "/services/cabinets" },
+  { label: "Cusgtom Cabinetry / Professional Carpentry", href: "/services/cabinets" },
   { label: "Demolition", href: "/services/demolition" },
   { label: "Drywall", href: "/services/drywall" },
   { label: "Painting", href: "/services/painting" },
@@ -18,6 +18,7 @@ const serviceLinks = [
 
 export default function MobileNav({ open, setOpen }: { open: boolean; setOpen: (v: boolean) => void }) {
   const close = () => setOpen(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -36,48 +37,49 @@ export default function MobileNav({ open, setOpen }: { open: boolean; setOpen: (
 
       <div
         className={`absolute top-full left-0 right-0 bg-zinc-900 z-50 overflow-hidden transition-all duration-500 ease-in-out ${
-          open ? "max-h-[calc(100dvh-160px)] h-[calc(100dvh-160px)] opacity-100" : "max-h-0 h-0 opacity-0"
+          open ? "max-h-[calc(100dvh-148px)] h-[calc(100dvh-148px)] opacity-100" : "max-h-0 h-0 opacity-0"
         }`}
       >
-        <div className="flex flex-col h-full px-8 py-6 justify-between">
+        <div className="flex flex-col h-full px-8 py-6 justify-between overflow-y-auto">
 
           {/* Nav items */}
-          <Link href="/about" onClick={close} className="flex items-center gap-4 py-2 text-white hover:text-gold transition-colors">
-            <HomeIcon />
+          <Link href="/about" onClick={close} className="flex items-center py-2 text-white hover:text-gold transition-colors">
             <span className="text-sm font-semibold tracking-widest uppercase">About</span>
           </Link>
 
           <div>
-            <div className="flex items-center gap-4 py-2 text-white">
-              <ServicesIcon />
+            <button
+              onClick={() => setServicesOpen(!servicesOpen)}
+              className="flex items-center gap-2 py-2 text-white hover:text-gold transition-colors"
+            >
               <span className="text-sm font-semibold tracking-widest uppercase">Services</span>
-            </div>
-            <div className="pl-10 flex flex-col gap-0.5 mt-0.5 mb-1">
-              {serviceLinks.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  onClick={close}
-                  className="text-sm text-zinc-400 hover:text-gold transition-colors py-0.5"
-                >
-                  {link.label}
-                </Link>
-              ))}
+              <ChevronIcon open={servicesOpen} />
+            </button>
+            <div className={`overflow-hidden transition-all duration-300 ease-in-out ${servicesOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}>
+              <div className="pl-4 flex flex-col gap-0.5 mt-0.5 mb-1">
+                {serviceLinks.map((link) => (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    onClick={close}
+                    className="text-sm text-zinc-400 hover:text-gold transition-colors py-0.5"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
 
-          <Link href="/contact" onClick={close} className="flex items-center gap-4 py-2 text-white hover:text-gold transition-colors">
-            <ContactIcon />
+          <Link href="/contact" onClick={close} className="flex items-center py-2 text-white hover:text-gold transition-colors">
             <span className="text-sm font-semibold tracking-widest uppercase">Contact</span>
           </Link>
 
-          <Link href="/gallery" onClick={close} className="flex items-center gap-4 py-2 text-white hover:text-gold transition-colors">
-            <GalleryIcon />
+          <Link href="/gallery" onClick={close} className="flex items-center py-2 text-white hover:text-gold transition-colors">
             <span className="text-sm font-semibold tracking-widest uppercase">Gallery</span>
           </Link>
 
-          <Link href="/testimonials" onClick={close} className="flex items-center gap-4 py-2 text-white hover:text-gold transition-colors">
-            <TestimonialsIcon />
+          <Link href="/testimonials" onClick={close} className="flex items-center py-2 text-white hover:text-gold transition-colors">
             <span className="text-sm font-semibold tracking-widest uppercase">Testimonials</span>
           </Link>
 
@@ -123,6 +125,22 @@ export default function MobileNav({ open, setOpen }: { open: boolean; setOpen: (
   );
 }
 
+function ChevronIcon({ open }: { open: boolean }) {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      className={`transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+    >
+      <polyline points="6 9 12 15 18 9" />
+    </svg>
+  );
+}
+
 function HamburgerIcon() {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -138,50 +156,6 @@ function CloseIcon() {
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
       <line x1="18" y1="6" x2="6" y2="18" />
       <line x1="6" y1="6" x2="18" y2="18" />
-    </svg>
-  );
-}
-
-function HomeIcon() {
-  return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A227" strokeWidth="1.8">
-      <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z" />
-      <path d="M9 21V12h6v9" />
-    </svg>
-  );
-}
-
-function ServicesIcon() {
-  return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A227" strokeWidth="1.8">
-      <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-    </svg>
-  );
-}
-
-function ContactIcon() {
-  return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A227" strokeWidth="1.8">
-      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-      <polyline points="22,6 12,13 2,6" />
-    </svg>
-  );
-}
-
-function GalleryIcon() {
-  return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A227" strokeWidth="1.8">
-      <rect x="3" y="3" width="18" height="18" rx="2" />
-      <circle cx="8.5" cy="8.5" r="1.5" />
-      <polyline points="21,15 16,10 5,21" />
-    </svg>
-  );
-}
-
-function TestimonialsIcon() {
-  return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A227" strokeWidth="1.8">
-      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
     </svg>
   );
 }
