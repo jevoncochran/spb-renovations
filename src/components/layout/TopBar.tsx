@@ -1,4 +1,4 @@
-import { PHONE_NUMBER, PHONE_HREF, EMAIL, EMAIL_HREF, HOURS } from "@/lib/data/contact";
+import { PHONE_NUMBER, PHONE_HREF, EMAIL, EMAIL_HREF, HOURS, FACEBOOK_HREF, INSTAGRAM_HREF } from "@/lib/data/contact";
 
 export default function TopBar() {
   return (
@@ -38,14 +38,18 @@ export default function TopBar() {
         <div className="flex items-center gap-3 justify-end">
           <span className="text-zinc-500">Follow Us</span>
           <a
-            href="#"
+            href={FACEBOOK_HREF}
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="Facebook"
             className="hover:text-gold transition-colors"
           >
             <FacebookIcon />
           </a>
           <a
-            href="#"
+            href={INSTAGRAM_HREF}
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="Instagram"
             className="hover:text-gold transition-colors"
           >

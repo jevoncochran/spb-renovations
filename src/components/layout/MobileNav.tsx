@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
-import { PHONE_NUMBER, PHONE_HREF, EMAIL, EMAIL_HREF } from "@/lib/data/contact";
+import { PHONE_NUMBER, PHONE_HREF, EMAIL, EMAIL_HREF, FACEBOOK_HREF, INSTAGRAM_HREF } from "@/lib/data/contact";
 
 const serviceLinks = [
   { label: "Kitchen Remodeling", href: "/services/kitchen-remodeling" },
@@ -108,10 +108,10 @@ export default function MobileNav({ open, setOpen }: { open: boolean; setOpen: (
           <div className="flex flex-col items-center gap-2 pt-3 border-t border-zinc-800">
             <span className="text-xs text-zinc-500 tracking-widest uppercase">Follow Us</span>
             <div className="flex items-center gap-4">
-              <a href="#" aria-label="Facebook" className="text-zinc-400 hover:text-gold transition-colors">
+              <a href={FACEBOOK_HREF} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-zinc-400 hover:text-gold transition-colors">
                 <FacebookIcon />
               </a>
-              <a href="#" aria-label="Instagram" className="text-zinc-400 hover:text-gold transition-colors">
+              <a href={INSTAGRAM_HREF} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-zinc-400 hover:text-gold transition-colors">
                 <InstagramIcon />
               </a>
             </div>
